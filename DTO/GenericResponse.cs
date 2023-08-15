@@ -6,9 +6,9 @@ using System.Text;
 
 namespace DTO
 {
-    public class GenericResponce
+    public class GenericResponse
     {
-        public GenericResponce()
+        public GenericResponse()
         {
             Message = string.Empty;
             Code = string.Empty;
@@ -23,13 +23,10 @@ namespace DTO
         public string Code { get; set; }
 
         public string Source { get; set; }
-
-        public bool MustChangePassword { get; set; }
-
     }
 
-    public class GenericResponce<TEntity> : GenericResponce
+    public class GenericResponse<TEntity> : GenericResponse
     {
-        public TEntity Responce { get; set; }
+        public TEntity Response { get; set; }
     }
 }

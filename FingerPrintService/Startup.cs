@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using Microsoft.Owin.Cors;
+using Owin;
 using System.Web.Http;
 
 namespace FingerPrintService
@@ -21,7 +22,9 @@ namespace FingerPrintService
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            appBuilder.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            config.EnableCors(false);
+
+            appBuilder.UseCors(CorsOptions.AllowAll);
 
             appBuilder.UseWebApi(config);
         }

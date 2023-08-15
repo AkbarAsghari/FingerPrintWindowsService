@@ -20,14 +20,14 @@ namespace WebAPI
         {
         }
 
-        protected IHttpActionResult Ok(GenericResponce genericResponce)
+        protected IHttpActionResult Ok(GenericResponse genericResponce)
         {
-            return Json<GenericResponce>(genericResponce);
+            return Json<GenericResponse>(genericResponce);
         }
 
         protected IHttpActionResult Ok(string Message = "", string Code = "", bool Status = true, HttpStatusCode httpStatusCode = HttpStatusCode.OK)
         {
-            return Json<GenericResponce>(new GenericResponce()
+            return Json<GenericResponse>(new GenericResponse()
             {
                 Message = Message,
                 Code = Code,
@@ -39,25 +39,25 @@ namespace WebAPI
 
         protected IHttpActionResult Ok<Tentity>(Tentity tentity, string Message = "", string Code = "", bool Status = true, HttpStatusCode httpStatusCode = HttpStatusCode.OK)
         {
-            return Json<GenericResponce>(new GenericResponce<Tentity>()
+            return Json<GenericResponse>(new GenericResponse<Tentity>()
             {
                 Message = Message,
                 Code = Code,
                 Source = Source,
                 HttpStatusCode = httpStatusCode,
                 Status = Status,
-                Responce = tentity,
+                Response = tentity,
             });
         }
 
-        protected IHttpActionResult BadRequest(GenericResponce genericResponce)
+        protected IHttpActionResult BadRequest(GenericResponse genericResponce)
         {
-            return Json<GenericResponce>(genericResponce);
+            return Json<GenericResponse>(genericResponce);
         }
 
         protected IHttpActionResult BadRequest(string Code, string Message, bool Status = false, HttpStatusCode httpStatusCode = HttpStatusCode.BadRequest)
         {
-            return Json<GenericResponce>(new GenericResponce()
+            return Json<GenericResponse>(new GenericResponse()
             {
                 Message = Message == string.Empty ? ErrorMassages.DefaultError : Message,
                 Code = Code,
@@ -69,25 +69,25 @@ namespace WebAPI
 
         protected IHttpActionResult BadRequest<Tentity>(Tentity tentity, string Code, string Message, bool Status = false, HttpStatusCode httpStatusCode = HttpStatusCode.BadRequest)
         {
-            return Json<GenericResponce>(new GenericResponce<Tentity>()
+            return Json<GenericResponse>(new GenericResponse<Tentity>()
             {
                 Message = Message == string.Empty ? ErrorMassages.DefaultError : Message,
                 Code = Code,
                 Source = Source,
                 HttpStatusCode = httpStatusCode,
                 Status = Status,
-                Responce = tentity,
+                Response = tentity,
             });
         }
 
-        protected IHttpActionResult Unauthorized(GenericResponce genericResponce)
+        protected IHttpActionResult Unauthorized(GenericResponse genericResponce)
         {
-            return Json<GenericResponce>(genericResponce);
+            return Json<GenericResponse>(genericResponce);
         }
 
         protected IHttpActionResult Unauthorized(string Code, string Message, bool Status = false, HttpStatusCode httpStatusCode = HttpStatusCode.Unauthorized)
         {
-            return Json<GenericResponce>(new GenericResponce()
+            return Json<GenericResponse>(new GenericResponse()
             {
                 Message = Message == string.Empty ? ErrorMassages.DefaultError : Message,
                 Code = Code,
@@ -99,14 +99,14 @@ namespace WebAPI
 
         protected IHttpActionResult Unauthorized<Tentity>(Tentity tentity, string Code, string Message, bool Status = false, HttpStatusCode httpStatusCode = HttpStatusCode.Unauthorized)
         {
-            return Json<GenericResponce>(new GenericResponce<Tentity>()
+            return Json<GenericResponse>(new GenericResponse<Tentity>()
             {
                 Message = Message == string.Empty ? ErrorMassages.DefaultError : Message,
                 Code = Code,
                 Source = Source,
                 HttpStatusCode = httpStatusCode,
                 Status = Status,
-                Responce = tentity,
+                Response = tentity,
             });
         }
     }
